@@ -1,9 +1,20 @@
 import React from 'react';
 import Header from './Header';
-import Welcome from './Welcome';
-import Survey from './Survey';
 
 export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      authenticated: false
+    };
+
+    this.login = this.login.bind( this );
+    this.logout = this.logout.bind( this );
+  }
+
+  logout() {}
+  login() {}
+
   render() {
     return (
       <div>

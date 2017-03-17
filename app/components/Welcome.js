@@ -15,26 +15,27 @@ export default class Welcome extends React.Component {
   }
 
   render() {
-    var style = {
-      marginBottom: '20px'
+    var titleStyle = {
+      fontSize: '4rem',
+      margin: '20px 0 10px'
+    };
+
+    var codeStyle = {
+      width: '50%'
     };
 
     return (
       <div className="row">
         <section id="content" className="col-8 push-2">
-          <div className="main-head col-6">
-            <h1 className="front-page-heading">Data powers the insights we generate</h1>
-          </div>
-          <div className="home-intro col-6 last" style={style}>
-            <p>We're seeking your data. All of it. Here, if you have a milkshake, and I have a milkshake, and I have a straw.</p>
-            <p>There it is, that's a straw, you see? Watch it. Now, my straw reaches acroooooooss the room and starts to drink your milkshake.</p>
-            <p>I... drink... your... milkshake! I drink it up!</p>
-          </div>
+          <article className="hentry">
+            <h1 style={titleStyle}>Welcome.</h1>
+            <p>Thank you for expressing interest in this project. We believe that democratizing data about how startups operate is just the first step towards lorem ipsum.</p>
+            <p>If this is your first time visiting the survey project, you should have been given an code to enter below. If you haven't receive a code, please contact <a href="mailto:someone@versionone.vc">someone</a>.</p>
+            <p>If you're returning to the project, please enter your email or the survey key you were provided.</p>
+            <p><input style={codeStyle} name="accessCode" placeholder="Access code, survey key, or email address." /><Link to="/survey" className="button">Let's Go!</Link></p>
+          </article>
           <div className="col-8 push-2 agreement">
-            <p className="align-center">
-              <Link to="/survey" className="button">I understand</Link>
-              <a onClick={this.getKey}>How is my data kept private?</a>
-            </p>
+            <p className="align-center"><a onClick={this.getKey}>I don't want to share any identifying information!</a></p>
           </div>
         </section>
       </div>

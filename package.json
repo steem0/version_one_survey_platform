@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Version One Ventures survey data application",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steem0/version_one_survey_platform.git"
+  },
   "scripts": {
     "dev": "nodemon server.js",
     "build": "webpack",

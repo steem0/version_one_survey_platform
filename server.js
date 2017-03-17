@@ -2,13 +2,10 @@ var express = require( 'express' );
 var bodyParser = require( 'body-parser' );
 var app = express();
 var path = require( 'path' );
-
 // Include our hashing functions
 var hash = require( './hashService' );
-
 // Include our google sheet auth services
 var googleAuth = require( './googleAuthService.js' );
-
 // Include our survey question services
 var surveyService = require( './surveyService.js' );
 
@@ -90,6 +87,27 @@ function handleSendError( err, code ) {
   res.send( JSON.stringify( { message: err } ) );
 }
 
+// Handle 404 errors appropriately
+/*
+app.use( function( req, res, next ) {
+  // Send that 404
+  res.status( 404 );
+
+  // Response appropriately with HTML, JSON, or text
+  if( req.accepts( 'html' ) ) {
+    res.sendFile( path.join( __dirname + '/build/404.html' ), { url: req.url } );
+    return;
+  }
+  if( req.accepts( 'json' ) ) {
+    res.send( { error: 'Not found' } );
+    return;
+  }
+  res.type( 'txt' ).send( 'Not found' );
+} );
+*/
+app.get( '*', function( req, res ) {
+  res.sendFile( path.join( __dirname + '/build/index.html' ) );
+} );
 
 app.listen( 3000, function() {
   console.log( 'SERVER STARTED: http://localhost:3000/' );
